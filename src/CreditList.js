@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
-import CreditInfoContainer from './CreditInfoContainer';
-
-function CreditList() {
-
-    const [creditList, setCreditList] = useState([]);
+import React from 'react';
+import CreditInfo from './CreditInfo';
 
 
-    function submitCreditInfo(e) {
-        setCreditList(prev => prev.push(<CreditInfoContainer />))
-        console.log(creditList)
-    }
+function CreditList(props) {
+
+    function generateRandomKey(){
+        return Math.floor(Math.random()*10000);
+        }
 
     return (
         <div>
-            <CreditInfoContainer onSubmit={submitCreditInfo} />
-            {creditList}
+            {props.credits.map(x=> <CreditInfo key={generateRandomKey()}/>)}
         </div>
     )
 }

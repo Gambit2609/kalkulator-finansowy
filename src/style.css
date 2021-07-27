@@ -2,3 +2,7 @@
     background-color: aquamarine;
   display: flex;
 }
+
+.credit-info-container{
+  display: inline-block;
+}

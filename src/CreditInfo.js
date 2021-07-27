@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-function CreditInfoContainer() {
+function CreditInfo() {
 
     const [creditType, setCreditType] = useState("");
     const [creditAmount, setCreditAmount] = useState("");
@@ -15,12 +15,8 @@ function CreditInfoContainer() {
         id === "rate-of-interest" && setRateOfInterest(value);
     }
 
-    function submitCreditForm(e){
-        e.preventDefault();
-    }
-
     return (
-            <form className="credit-data" onSubmit={submitCreditForm}>
+            <div className="credit-info-container">
                 <label htmlFor="credit-info">Rodzaj zobowiązania
                         <select id="credit-info" value={creditType} onChange={handleChange}>
                             <option value="">----</option>
@@ -40,9 +36,8 @@ function CreditInfoContainer() {
                     <label htmlFor="rate-of-interest">Oprocentowanie
                         <input type="text" onChange={handleChange} value={rateOfInterest} id="rate-of-interest" />
                     </label>
-                    <button>Dodaj kredyt do listy</button>
-            </form>
+            </div>
     )
 }
 
-export default CreditInfoContainer;
+export default CreditInfo;
